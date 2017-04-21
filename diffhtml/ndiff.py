@@ -58,15 +58,15 @@ class BlockDiffContext(DiffContext):
     insert_tag = ('<ins>', '</ins>')
     delete_tag = ('<del>', '</del>')
 
-    def __new__(cls, *args, cutoff=0.75, **kwargs):
+    def __new__(cls, *args, cutoff, **kwargs):
         self = super().__new__(cls, *args, **kwargs)
         self.cutoff = cutoff
         return self
 
     @classmethod
-    def crunch(cls, cruncher, a, b):
+    def crunch(cls, cruncher, a, b, *, cutoff):
         for tag, loa, hia, lob, hib in cruncher.get_opcodes():
-            context = cls(a, b, loa, hia, lob, hib)
+            context = cls(a, b, loa, hia, lob, hib, cutoff=cutoff)
             yield from getattr(context, DUMP_HANDLERS[tag])()
 
     def dump_equal(self):
@@ -152,6 +152,6 @@ class BlockDiffContext(DiffContext):
         yield from subcontext._dump_replace_lines()
 
 
-def ndiff(a, b):
+def ndiff(a, b, *, cutoff=0.75):
     cruncher = difflib.SequenceMatcher(None, a, b)
-    yield from BlockDiffContext.crunch(cruncher, a, b)
+    yield from BlockDiffContext.crunch(cruncher, a, b, cutoff=cutoff)
