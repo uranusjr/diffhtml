@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}ndiff{% endblock title %}
+
+
+{% block head %}
+<style>
+ins, del {
+	text-decoration: none;
+	display: inline-block;
+	padding: 0 0.2rem;
+}
+ins {
+	background-color: #9FE6B8;
+}
+del {
+	background-color: #E6ADAB;
+}
+ins + br + del {	/* A bit margin to the next pair. */
+	margin-top: 0.4rem;
+}
+
+/* Inline diffs. */
+ins > ins, del > del {
+	display: inline;
+	padding: 0;
+}
+ins > ins {
+	background-color: #70BD8A;
+}
+del > del {
+	background-color: #E37E79;
+}
+</style>
+{% endblock head %}
+
+
+{% block main %}
+
+<h1><code>ndiff</code> Demo</h1>
+
+{% if result %}
+<section class="result-section">
+	<div class="panes">
+		<div class="pane">
+			<p>{{ result }}</p>
+		</div>
+	</div>
+</section>
+{% endif %}
+
+<section class="input-section">
+	<p>Input text below, submit to diff:</p>
+	<form method="post">
+		<div class="panes">
+			<div class="pane">
+				<textarea name="a">{{ input['a'] }}</textarea>
+			</div>
+			<div class="pane">
+				<textarea name="b">{{ input['b'] }}</textarea>
+			</div>
+		</div>
+		<div>
+			<label for="id-cutoff">
+				Cutoff:
+				<input type="number" step="0.1" min="0.0" max="1.0" name="cutoff" id="id-cutoff" value="{{ cutoff }}">
+			</label>
+			<button type="submit">Submit</button>
+		</div>
+	</form>
+</section>
+
+{% endblock main %}

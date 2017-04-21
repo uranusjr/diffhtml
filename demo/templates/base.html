@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{% block title %}{{ title }}{% endblock title %} | Diff-HTML Demo</title>
+
+<style>
+body {
+	font-family: sans-serif;
+}
+main {
+	max-width: 1170px;
+	margin: 0 1rem;
+}
+section {
+	margin-bottom: 2rem;
+}
+button {
+	padding: 0.75rem 1.5rem;
+	background-color: rgb(68, 199, 103);
+	border: 1px solid rgb(24, 171, 41);
+	border-radius: 2.5rem;
+	color: #fff;
+	font-size: 1rem;
+	cursor: pointer;
+}
+textarea {
+	padding: 0.5rem;
+	font-family: monospace;
+	font-size: 125%;
+}
+input[type="number"] {
+	width: 4rem;
+	font-size: 1rem;
+	line-height: 160%;
+	text-align: right;
+}
+
+.panes {
+	display: flex;
+	margin: 0.5rem 0;
+}
+.panes > .pane {
+	flex: 1;
+	display: flex;
+	margin-right: 1rem;
+}
+.panes > .pane:last-child {
+	margin-right: 0;
+}
+.panes > .pane > * {
+	flex: 1;
+}
+
+main .result-section .pane {
+	padding: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+main .result-section p {
+	margin: 0;
+	line-height: 142%;
+}
+main .input-section textarea {
+	height: 16rem;
+}
+</style>
+
+{% block head %}
+{% endblock head %}
+
+</head>
+
+<body>
+
+<main>{% block main %}{% endblock main %}</main>
+
+</body>
+
+</html>
