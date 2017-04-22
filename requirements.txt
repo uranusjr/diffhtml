@@ -1,4 +1,5 @@
 collective.checkdocs
+flask
 tox
 twine
 wheel
