@@ -46,7 +46,7 @@ def ndiff():
 
 @app.route('/')
 def home():
-    return flask.redirect('/ndiff')
+    return flask.redirect(flask.url_for('ndiff'))
 
 
 if __name__ == '__main__':
