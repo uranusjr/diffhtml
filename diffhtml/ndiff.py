@@ -58,7 +58,9 @@ class BlockDiffContext(DiffContext):
     insert_tag = ('<ins>', '</ins>')
     delete_tag = ('<del>', '</del>')
 
-    def __new__(cls, *args, cutoff, **kwargs):
+    DEFAULT_CUTOFF = 0.75
+
+    def __new__(cls, *args, cutoff=DEFAULT_CUTOFF, **kwargs):
         self = super().__new__(cls, *args, **kwargs)
         self.cutoff = cutoff
         return self
@@ -152,6 +154,6 @@ class BlockDiffContext(DiffContext):
         yield from subcontext._dump_replace_lines()
 
 
-def ndiff(a, b, *, cutoff=0.75):
+def ndiff(a, b, *, cutoff=BlockDiffContext.DEFAULT_CUTOFF):
     cruncher = difflib.SequenceMatcher(None, a, b)
     yield from BlockDiffContext.crunch(cruncher, a, b, cutoff=cutoff)
