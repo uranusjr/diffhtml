@@ -19,7 +19,7 @@ Diff-HTML
 Tools for generating HTML diff output.
 
 * Free software: ISC license
-.. * Documentation: https://diffhtml.readthedocs.io.
+* Documentation (not set up yet): https://diffhtml.readthedocs.io.
 
 
 Features
