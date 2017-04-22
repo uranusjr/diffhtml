@@ -67,6 +67,7 @@ class BlockDiffContext(DiffContext):
 
     @classmethod
     def crunch(cls, cruncher, a, b, *, cutoff):
+        cruncher.set_seqs(a, b)
         for tag, loa, hia, lob, hib in cruncher.get_opcodes():
             context = cls(a, b, loa, hia, lob, hib, cutoff=cutoff)
             yield from getattr(context, DUMP_HANDLERS[tag])()
