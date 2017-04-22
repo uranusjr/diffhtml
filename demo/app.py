@@ -1,12 +1,16 @@
+import pathlib
+
+import diffhtml
 import flask
 
 from flask import request
 from markupsafe import Markup
 
-import diffhtml
 
-
-app = flask.Flask('Diff-HTML Demo')
+app = flask.Flask(
+    'Diff-HTML Demo',
+    template_folder=pathlib.Path(__file__).parent.joinpath('templates'),
+)
 
 
 DEFAULT_A = """
