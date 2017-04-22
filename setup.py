@@ -16,7 +16,6 @@ requirements = [
 test_requirements = [
     'pytest>=2.10',
     'pytest-cov',
-    'tox',
 ]
 
 setup(

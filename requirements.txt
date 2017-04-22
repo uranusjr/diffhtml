@@ -1,5 +1,6 @@
-markupsafe
-pytest>=2.10
-pytest-cov
+collective.checkdocs
+tox
 twine
 wheel
+
+-r requirements-test.txt
