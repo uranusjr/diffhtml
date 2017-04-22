@@ -21,10 +21,10 @@ From Marathon to Waterloo, in order categorical.
 """
 
 DEFAULT_B = """
-I am the very model of a cartoon individual,
-My animation's comical, unusual, and whimsical,
-I'm quite adept at funny gags, comedic theory I have read,
-From wicked puns and stupid jokes to anvils that drop on your head.
+I am the very model of an anime individual,
+I've information on comical, unusual, and moe girl,
+I know the girls from galgames, and I quote the lines all chuunibyo,
+From Neo Eva to SAO, down to the very last detail.
 """
 
 
