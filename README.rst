@@ -18,6 +18,8 @@ Diff-HTML
 
 Tools for generating HTML diff output.
 
+`A simple demo <http://diffhtml-demo.herokuapp.com/ndiff>`_.
+
 * Free software: ISC license
 * Documentation (not set up yet): https://diffhtml.readthedocs.io.
 
