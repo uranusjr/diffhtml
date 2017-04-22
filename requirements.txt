@@ -2,6 +2,7 @@ collective.checkdocs
 flask
 tox
 twine
+waitress
 wheel
 
 -r requirements-test.txt
