@@ -1,3 +1,4 @@
+bumpversion
 collective.checkdocs
 flask
 tox
